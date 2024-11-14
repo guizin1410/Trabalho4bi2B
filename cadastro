@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 12px;
+            left: 10px;
+            font-size: 18px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 10px 10px 30px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background-color: #001f3f;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #003366;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .divider span {
+            flex-grow: 1;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .divider span::before {
+            content: " ";
+            margin-right: 10px;
+        }
+
+        .divider span::after {
+            content: " ";
+            margin-left: 10px;
+        }
+
+        .google-login {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .google-login button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .google-login button img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .register {
+            text-align: center;
+        }
+
+        .register a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .register a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Entrar</h1>
+            <form action="#" method="post">
+                <div class="input-group">
+                    <label for="email">@</label>
+                    <input type="email" id="email" placeholder="Digite seu email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+                <button type="submit">Acessar</button>
+            </form>
+            <div class="divider">
+                <span>OU</span>
+            </div>
+            <div class="google-login">
+                <button>
+                    <img src="google-icon.png" alt="Google Icon"> Entrar com Google
+                </button>
+            </div>
+            <div class="register">
+                <p>Ainda não possui uma conta? <a href="#">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
