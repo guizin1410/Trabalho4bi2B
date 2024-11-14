@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Nike</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos do login */
+        .login-container, .product-container {
+            display: none;
+        }
+
+        .login-container.active, .product-container.active {
+            display: block;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .login-container button, .buy-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover, .buy-button:hover {
+            background-color: #555;
+        }
+
+        /* Estilos dos produtos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Interface de Login -->
+        <div class="login-container active" id="loginContainer">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button onclick="login()">Entrar</button>
+        </div>
+
+        <!-- Interface de Produtos -->
+        <div class="product-container" id="productContainer">
+            <h2>Produtos</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="tenis1.jpg" alt="Tênis Nike Court Royale">
+                    <h3>Tênis Nike Court Royale</h3>
+                    <p class="price">R$ 379,99</p>
+                    <button class="buy-button" onclick="comprar()">Comprar</button>
+                </div>
+                <div class="product-card">
+                    <img src="tenis2.jpg" alt="Tênis Nike Air Max">
+                    <h3>Tênis Nike Air Max</h3>
+                    <p class="price">R$ 455,99</p>
+                    <button class="buy-button" onclick="comprar()">Comprar</button>
+                </div>
+                <!-- Adicione mais produtos conforme necessário -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Autenticação simples com um usuário e senha fixos
+            const correctUsername = "usuario";
+            const correctPassword = "senha123";
+
+            if (username === correctUsername && password === correctPassword) {
+                // Salvar o estado de login no Local Storage
+                localStorage.setItem("isAuthenticated", "true");
+                // Mostrar a interface de produtos e ocultar a de login
+                document.getElementById("loginContainer").classList.remove("active");
+                document.getElementById("productContainer").classList.add("active");
+            } else {
+                alert("Usuário ou senha incorretos!");
+            }
+        }
+
+        function verificarAutenticacao() {
+            // Verificar se o usuário está autenticado
+            if (localStorage.getItem("isAuthenticated") === "true") {
+                // Mostrar a interface de produtos
+                document.getElementById("loginContainer").classList.remove("active");
+                document.getElementById("productContainer").classList.add("active");
+            }
+        }
+
+        function comprar() {
+            // Redireciona para a página do formulário
+            window.location.href = "formulario.html";
+        }
+
+        // Verifica a autenticação ao carregar a página
+        verificarAutenticacao();
+    </script>
+</body>
+</html>
